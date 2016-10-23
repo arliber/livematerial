@@ -1,0 +1,465 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 60em;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.small-container {
+    max-width: 38em;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+/* HEADER */
+
+header {
+    width: 960px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header hgroup {
+    display: flex;
+    align-items: center;
+
+}
+
+header hgroup h1 {
+    color: #B1B1B1;
+    font-size: 18px;
+    margin-left: 16px
+}
+header hgroup h1 span {
+    color: #A4A2A4;
+}
+
+
+header#logo {
+    width: 72px;
+    height: 68px;
+}
+
+nav {
+    text-transform: uppercase;
+    font-size: 13px
+}
+
+nav a {
+    color: #4A90E2;
+    padding-bottom: 3px;
+    text-decoration: none;
+    margin-left: 12px;
+}
+
+nav a:nth-child(even):hover {
+    border-top: 2px solid #4A90E2;
+}
+nav a:nth-child(odd):hover {
+    border-bottom: 2px solid #4A90E2;
+}
+
+nav a:last-child {
+  color: #393A43;
+}
+
+/* HERO */
+
+#hero {
+    height: 350px;
+    background: url(../img/hero.jpg) no-repeat center -200px fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero section {
+    background: rgba(255,255,255,0.9);
+    width: 400px;
+    text-align: center;
+    padding: 20px;
+    font-weight: 300;
+    border-left: 4px solid #4A90E2;
+}
+
+button {
+    border: 2px solid #4A90E2;
+    font-style: italic;
+    color: #4A90E2;
+    background: none;
+    margin-top: 20px;
+    padding: 5px 30px;
+    font-weight: 200;
+}
+
+button:hover {
+    color: #fff;
+    background: #4A90E2;
+}
+
+/* FEATURES */
+
+#features {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    border-bottom: 1px solid #C7C7C7;
+}
+
+#features div {
+    width: 320px;
+    padding: 15px
+}
+#features div:nth-child(2) {
+    border-right: 1px solid #C7C7C7;
+    border-left: 1px solid #C7C7C7;
+}
+#features div h3 {
+   font-weight: 400;
+}
+#features div p {
+   font-weight: 200;
+}
+
+/* CAMPAIGN-WIZARD */
+
+#campaign-wizard {
+    width: 960px;
+    font-weight: 100;
+}
+
+#campaign-wizard section {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form {
+    width: 550px;
+    font-size: 14px;
+    -webkit-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.17);
+    -moz-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.17);
+    box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.17);
+}
+.form h1 {
+    background: #000;
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 100;
+    font-style: italic;
+    padding: 10px;
+}
+
+#campaign-wizard aside {
+    width: 380px;
+    text-align: center;
+}
+#campaign-wizard aside h1 {
+    font-weight: 200;
+    border-bottom: 2px solid #000;
+    margin: 0;
+}
+
+
+/* CAMPAIGN WIZARD - TARGETING */
+#targeting .form h1 {
+    background: #4A90E2;
+}
+
+#targeting .form-elements {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+}
+#targeting .form-elements  select {
+    width: 240px;
+}
+
+#targeting aside h1 {
+    color: #4A90E2;
+    border-bottom: 2px solid #4A90E2;
+}
+
+/* CAMPAIGN WIZARD - CONTENT */
+#content .form h1 {
+    background: #BA68C8;
+}
+
+#content .form-elements  {
+    padding: 15px;
+}
+#content .form-elements label {
+    margin-bottom: 10px;
+    display: block;
+}
+#content .form-elements label input {
+    margin-right: 10px;
+}
+#content-and-files {
+    display: flex;
+    justify-content: space-between;
+}
+#textual-info input, #textual-info textarea {
+    width: 300px;
+    border-radius: 3px;
+    border: 1px solid #979797;
+    padding: 5px;
+}
+
+.form-elements #textual-info label:last-child {
+    margin-bottom: 0; /*Remove margin for labels for last item*/
+}
+
+#files-container.empty {
+    width: 180px;
+    background: #efefef;
+    border: 1px dashed #979797;
+    border-radius: 5px;
+    background: url(../img/dropzone.png) no-repeat center center;
+}
+#files-container.full {
+    width: 180px;
+}
+
+#content aside h1 {
+    color: #BA68C8;
+    border-bottom: 2px solid #BA68C8;
+}
+
+#content-and-files {
+
+}
+
+/* CAMPAIGN WIZARD - SUBMIT PHASE */
+#submit-phase {
+    margin-bottom: 30px;
+}
+#submit-phase .form h1 {
+    background: #A2C86A;
+}
+
+#submit-phase .form-elements  {
+    padding: 15px;
+}
+#submit-phase .form-elements label {
+    margin-bottom: 10px;
+}
+#submit-phase aside h1 {
+    color: #A2C86A;
+    border-bottom: 2px solid #A2C86A;
+}
+#submit-phase button {
+    width: 100%;
+    border: 2px solid #A2C86A;
+    color: #A2C86A;
+}
+#submit-phase button:hover {
+    background: #A2C86A;
+    color: #fff;
+}
+#submit-phase input {
+    border-radius: 3px;
+    border: 1px solid #979797;
+    padding: 5px;
+}
+#submit-phase .form-elements label:first-child input{
+    width: 32%;
+}
+#submit-phase .form-elements label:nth-child(2) input {
+    width: 60%;
+    margin-left: 14px;
+}
+
+
+/* ABOUT */
+#about {
+    background: #393A43;
+}
+#about-content {
+    display: flex;
+    padding: 25px 0;
+    justify-content: space-between;
+
+}
+#about-content article {
+    font-weight: 100;
+    color: #fff;
+    margin-left: 20px;
+}
+#about-content article h2 {
+    margin: 0;
+    font-weight: 200;
+}
+/* PUBLISHERS */
+#publishers {
+    display: flex;
+    flex-wrap: wrap;
+}
+#publishers article {
+    flex: 1 1 30%;
+    margin-right: 20px;
+    font-weight: 200;
+}
+#publishers article h3 {
+    font-weight: 400;
+    color: #4A90E2;
+}
+#publisher-logos {
+    flex: 1 1 30%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+}
+#publisher-logos img {
+    padding: 0 15px 10px 0;
+    width: 70px;
+}
+
+/* PRICING */
+#pricing {
+    background: #fbfbfb;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+#pricing-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#pricing-content article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#pricing-content article h2 {
+    font-weight: 400;
+    color: #607D8B;
+    margin: 0;
+}
+#pricing-content article h3 {
+    font-weight: 400;
+    font-size: 17px;
+    color: #607D8B;
+    margin: 0;
+}
+#pricing-content article h1 {
+    color: #4A90E2;
+    font-weight: 200;
+    font-size: 80px;
+    margin: 0;
+}
+#pricing-content article p {
+    font-weight: 100;
+    font-size: 14px;
+    word-spacing: 0.2em;
+    letter-spacing: 0.01em;
+    color: #4A90E2;
+
+}
+#pricing-content img {
+    width: 300px;
+}
+
+/* CONTACT */
+#contact {
+    background: url(../img/contact-bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#contact-form {
+    margin-top: 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px 180px 15px 15px;
+}
+#contact-form label {
+    display: block;
+    margin-top: 12px;
+}
+#contact-form input, #contact-form textarea {
+    width: 300px;
+}
+#contact h1 {
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    font-weight: 100;
+    font-size: 20px;
+}
+#contact button {
+    color: #fff;
+    margin: 0;
+    border: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.15);
+    display: block;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+    padding: 10px
+}
+#info-card {
+    margin: -82px 0 0 -150px;
+    background: #fff;
+    width: 300px;
+    height: 130px;
+    box-shadow: 0px 5px 11px 3px rgba(0,0,0,0.52);
+}
+
+
+/* FOOTER */
+footer {
+    background: #393A43;
+}
+#footer-content {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    font-weight: 100;
+    font-size: 14px;
+}
+#footer-logo {
+    display: flex;
+    align-items: center;
+}
+#footer-logo img {
+    margin-right: 15px;
+}
+
+
+
+
+
+
+@media (max-width: 48em) {
+    #about-content img {
+        display: none;
+    }
+    #publishers article {
+        flex: 1 1 100%;
+    }
+    #publisher-logos {
+        flex: 1 1 100%;
+    }
+
+}

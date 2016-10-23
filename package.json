@@ -1,0 +1,19 @@
+{
+  "name": "LiveMaterial",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "express": "^4.13.4",
+    "lodash": "^4.13.1",
+    "mongodb": "^2.2.11",
+    "multer": "^1.2.0",
+    "request": "~2.72.0",
+    "serve-favicon": "~2.3.0",
+    "winston": "~2.2.0"
+  }
+}
