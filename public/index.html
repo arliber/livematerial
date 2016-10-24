@@ -74,16 +74,20 @@
                 <form id="campaign-wizard" method="post" action="/api/campaign" class="dropzone" enctype="multipart/form-data">
 
                     <section id="targeting">
+                        <aside>
+                            <h1>1</h1>
+                            <p>Select your target audiance. You can select multiple categories!</p>
+                        </aside>
                         <div class="form">
                             <h1>Targeting</h1>
                             <div class="form-elements">
-                                <select id="categories" multiple="multiple" name="categories">
+                                <select id="categories" multiple="multiple" name="categories" style="width: 45%">
                                     <option value="tech">Tech</option>
                                     <option value="medicine">Medicine</option>
                                     <option value="motorsport">Motorsport</option>
                                     <option value="food">Food</option>
                                 </select>
-                                <select id="languages" multiple="multiple" name="languages">
+                                <select id="languages" multiple="multiple" name="languages" style="width: 45%">
                                     <option value="english">English</option>
                                     <option value="hebrew">Hebrew</option>
                                     <option value="russian">Russian</option>
@@ -93,13 +97,13 @@
                                 </select>
                             </div>
                         </div>
-                        <aside>
-                            <h1>1</h1>
-                            <p>Select your target audiance. You can select multiple categories!</p>
-                        </aside>
                     </section>
 
                     <section id="content">
+                        <aside>
+                            <h1>2</h1>
+                            <p>Describe the desired coverage, provide images, vidoes or other complimanary files</p>
+                        </aside>
                         <div class="form">
                             <h1>Content</h1>
                             <div class="form-elements">
@@ -118,13 +122,13 @@
 
                             </div>
                         </div>
-                        <aside>
-                            <h1>2</h1>
-                            <p>Describe the desired coverage, provide images, vidoes or other complimanary files</p>
-                        </aside>
                     </section>
 
                     <section id="submit-phase">
+                        <aside>
+                            <h1>3</h1>
+                            <p>Get suggested distribution channels by </p>
+                        </aside>
                         <div class="form">
                             <h1>Get proposals</h1>
                             <div class="form-elements">
@@ -133,10 +137,6 @@
                                 <button type="submit">Get proposals</button>
                             </div>
                         </div>
-                        <aside>
-                            <h1>3</h1>
-                            <p>Get suggested distribution channels by </p>
-                        </aside>
                     </section>
 
                 </form>

@@ -47,7 +47,7 @@ header#logo {
 nav {
     text-transform: uppercase;
     font-size: 13px;
-    transition: 0.3s; /*Animate this because it changes in mobile.css*/
+    transition: 0.5s; /*Animate this because it changes in mobile.css*/
 }
 
 nav a {
@@ -89,7 +89,7 @@ nav a:last-child {
     border-left: 4px solid #4A90E2;
 }
 
-button {
+#hero button {
     border: 2px solid #4A90E2;
     font-style: italic;
     color: #4A90E2;
@@ -99,7 +99,7 @@ button {
     font-weight: 200;
 }
 
-button:hover {
+#hero button:hover {
     color: #fff;
     background: #4A90E2;
 }
@@ -138,7 +138,6 @@ button:hover {
 /* CAMPAIGN-WIZARD */
 
 #campaign-wizard {
-    width: 960px;
     font-weight: 100;
 }
 
@@ -150,7 +149,8 @@ button:hover {
 }
 
 .form {
-    width: 550px;
+    flex: 2 1 10em;
+    order: 1;
     font-size: 14px;
     -webkit-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.17);
     -moz-box-shadow: 0px 1px 3px 2px rgba(0,0,0,0.17);
@@ -167,8 +167,10 @@ button:hover {
 }
 
 #campaign-wizard aside {
-    width: 380px;
+    flex: 1 1 1em;
+    order: 2;
     text-align: center;
+    margin-left: 30px;
 }
 #campaign-wizard aside h1 {
     font-weight: 200;
@@ -188,9 +190,8 @@ button:hover {
     padding: 15px;
 }
 #targeting .form-elements  select {
-    width: 240px;
+    /*Invisible element because select2 hides it*/
 }
-
 #targeting aside h1 {
     color: #4A90E2;
     border-bottom: 2px solid #4A90E2;
@@ -207,19 +208,26 @@ button:hover {
 #content .form-elements label {
     margin-bottom: 10px;
     display: block;
+    width: 100%;
 }
 #content .form-elements label input {
     margin-right: 10px;
 }
+
 #content-and-files {
     display: flex;
     justify-content: space-between;
 }
+#textual-info {
+    display: block;
+    flex: 1;
+}
 #textual-info input, #textual-info textarea {
-    width: 300px;
     border-radius: 3px;
     border: 1px solid #979797;
     padding: 5px;
+    display: block;
+    width: 100%
 }
 
 .form-elements #textual-info label:last-child {
@@ -227,7 +235,8 @@ button:hover {
 }
 
 #files-container.empty {
-    width: 180px;
+    margin-left: 30px;
+    flex: 1;
     background: #efefef;
     border: 1px dashed #979797;
     border-radius: 5px;
@@ -256,6 +265,9 @@ button:hover {
 
 #submit-phase .form-elements  {
     padding: 15px;
+    display: flex;
+    flex-wrap: wrap; /*Reuired for the break-line hack - http://stackoverflow.com/questions/28755460/how-to-break-line-in-a-flex-layout*/
+    justify-content: space-between;
 }
 #submit-phase .form-elements label {
     margin-bottom: 10px;
@@ -265,25 +277,37 @@ button:hover {
     border-bottom: 2px solid #A2C86A;
 }
 #submit-phase button {
+    font-style: italic;
+    padding: 5px 30px;
+    margin-top: 15px;
+    font-weight: 200;
     width: 100%;
     border: 2px solid #A2C86A;
-    color: #A2C86A;
+    color: #fff;
+    background: #A2C86A;
+    transition: 0.5s;
 }
 #submit-phase button:hover {
     background: #A2C86A;
+    padding: 10px 40px;
     color: #fff;
+    transition: 0.5s;
+    
+}
+#submit-phase label {
+    flex: 1;
+}
+#submit-phase label:nth-child(2)::after { /*Break-line hack*/
+    content: '';
+    display: block;
+    width: 100%;
 }
 #submit-phase input {
     border-radius: 3px;
     border: 1px solid #979797;
     padding: 5px;
-}
-#submit-phase .form-elements label:first-child input{
-    width: 32%;
-}
-#submit-phase .form-elements label:nth-child(2) input {
-    width: 60%;
-    margin-left: 14px;
+    display: block;
+    width: 90%
 }
 
 

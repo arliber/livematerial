@@ -1,10 +1,41 @@
 @media (max-width: 48em) { /*Just small - REMOVE?*/
-    
-
+    #campaign-wizard section {
+        flex-direction: column
+    }
+    #campaign-wizard aside {
+        order: 1;
+        margin: 0;
+    }
     
     #about-content img {
         display: none;
     }
+}
+
+@media (max-width: 35em) { /*Mobile*/
+    nav {
+        opacity: 0;
+    }
+    #features {
+        flex-direction: column;
+    }
+    #features div:nth-child(1), #features div:nth-child(2)  {
+        border-bottom: 1px solid #C7C7C7;
+    }
+    #features div:nth-child(2) {
+        border-right: none;
+        border-left: none;
+    }
+    #hero section {
+        width: 250px;
+        transition: 0.5s;
+    }
+    
+    
+    
+    
+    
+    
     #publishers article {
         flex: 1 1 100%;
     }
@@ -13,21 +44,5 @@
     }
     
 
-}
-
-@media (max-width: 35em) { /*Mobile*/
-    nav {
-        opacity: 0;
-        transition: 0.2s;
-    }
-    #features {
-        flex-direction: column;
-    }
-    #features div:nth-child(2) {
-        border: none;
-    }
-    #hero section {
-        width: 250px;
-        transition: 0.5s;
-    }
+    
 }
