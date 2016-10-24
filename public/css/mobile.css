@@ -1,4 +1,4 @@
-@media (max-width: 48em) { /*Just small - REMOVE?*/
+@media (max-width: 48em) { /*Tablets, small screens*/
     #campaign-wizard section {
         flex-direction: column
     }
@@ -9,6 +9,17 @@
     
     #about-content img {
         display: none;
+    }
+    #contact {
+        flex-direction: column;
+    }
+    #contact-form {
+        padding-right: 15px;
+        transition: 0.5s;
+    }
+    #info-card {
+        margin: 0 0 20px;
+        transition: 0.5s;
     }
 }
 
@@ -31,18 +42,11 @@
         transition: 0.5s;
     }
     
-    
-    
-    
-    
-    
     #publishers article {
         flex: 1 1 100%;
     }
     #publisher-logos {
         flex: 1 1 100%;
     }
-    
-
     
 }
