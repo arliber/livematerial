@@ -1,0 +1,33 @@
+@media (max-width: 48em) { /*Just small - REMOVE?*/
+    
+
+    
+    #about-content img {
+        display: none;
+    }
+    #publishers article {
+        flex: 1 1 100%;
+    }
+    #publisher-logos {
+        flex: 1 1 100%;
+    }
+    
+
+}
+
+@media (max-width: 35em) { /*Mobile*/
+    nav {
+        opacity: 0;
+        transition: 0.2s;
+    }
+    #features {
+        flex-direction: column;
+    }
+    #features div:nth-child(2) {
+        border: none;
+    }
+    #hero section {
+        width: 250px;
+        transition: 0.5s;
+    }
+}
