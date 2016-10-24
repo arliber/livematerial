@@ -27,12 +27,15 @@ $(function () {
 
         this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
             console.log('Submitting form..');
+
             e.preventDefault();
             e.stopPropagation();
-            myDropzone.processQueue();
+
             if (myDropzone.getQueuedFiles().length > 0) {
+                console.log('Sending with files..');
                 myDropzone.processQueue();
             } else {
+                console.log('Sending with NO files..');
                 var mockFile =   {
                     name: "mock",
                     size: 1,
@@ -43,9 +46,9 @@ $(function () {
             }
         });
       },
-      drop: function() {
+        drop: function() {
           $('#files-container').removeClass('empty').addClass('full');
-      },
+        },
         reset: function() {
             $('#files-container').addClass('empty').removeClass('full');
         }

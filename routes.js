@@ -19,4 +19,16 @@ router.post('/api/campaign', upload.any(), function(req, res) {
 	return campaignController.saveCampaign(req, res);
 });
 
+router.get('/api/campaign/:userId', function(req, res) {
+	return campaignController.getCampaigns(req, res);
+});
+
+router.patch('/api/campaign/:userId/:campaignId', function(req, res) {
+	return campaignController.updateCampaign(req, res);
+});
+
+router.delete('/api/campaign/:userId/:campaignId', function(req, res) {
+	return campaignController.deleteCampaign(req, res); //TODO
+});
+
 module.exports = router;
