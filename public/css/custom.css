@@ -14,6 +14,19 @@ body {
     padding: 15px;
 }
 
+input[type="text"], textarea {
+    border-radius: 3px;
+    border: 1px solid #B0B0B0;
+    padding: 5px;
+    display: block;
+    width: 100%;
+    font-weight: 100;
+}
+input[type="text"]:focus , textarea:focus, .select2-container--default.select2-container--focus .select2-selection--multiple {
+    border: 1px solid #4A90E2;
+    outline: none; /*Remove the annoying glow*/
+}
+
 /* HEADER */
 
 header {
@@ -222,13 +235,6 @@ nav a:last-child {
     display: block;
     flex: 1;
 }
-#textual-info input, #textual-info textarea {
-    border-radius: 3px;
-    border: 1px solid #979797;
-    padding: 5px;
-    display: block;
-    width: 100%
-}
 
 .form-elements #textual-info label:last-child {
     margin-bottom: 0; /*Remove margin for labels for last item*/
@@ -303,10 +309,6 @@ nav a:last-child {
     width: 100%;
 }
 #submit-phase input {
-    border-radius: 3px;
-    border: 1px solid #979797;
-    padding: 5px;
-    display: block;
     width: 90%
 }
 
