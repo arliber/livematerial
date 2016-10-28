@@ -14,6 +14,13 @@ router.get('/', function(req, res, next) {
   res.redirect('public/index.html');
 });
 
+//Client area
+router.get('/client', function(req, res, next) {
+	log.info('GET request to /client');
+	res.sendFile('public/client.html');
+});
+
+
 //API
 router.post('/api/campaign', upload.any(), function(req, res) {
 	return campaignController.saveCampaign(req, res);

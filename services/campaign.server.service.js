@@ -1,7 +1,8 @@
 'use strict';
 
-var logger = require('winston'),
-	ObjectID = require('mongodb').ObjectID;
+var log = require('winston'),
+	ObjectID = require('mongodb').ObjectID,
+	emailService = require('../services/mail.server.service');
 
 function isValidCampaignData(fields, files) {
 	return []; //TODO: Implement validation
@@ -47,10 +48,55 @@ function createCampaignObject(fields, files) {
 	return campaignObject;
 }
 
+function saveNewUserWithCampaign(email, userName, campaignObject, callback) {
+
+	var campaignsCollection = global.db.collection('campaigns');
+
+	var newCampaignWithUser = {
+		email: email,
+		userName: userName,
+		campaigns: [campaignObject]
+	};
+
+	campaignsCollection.insert(newCampaignWithUser, function(err, result) {
+		if(err) {
+			log.error('Campaign service: Error in saving new user with campaign', err);
+			callback(err);
+		} else {
+			log.info('Campaign service: New campaign saved');
+			callback(null, result.insertedIds[0]);
+		}
+	});
+}
+
+function addNewCampaignToUser(userId, campaignObject, callback) {
+
+	var campaignsCollection = global.db.collection('campaigns');
+
+	var query = {
+		_id: new ObjectID(userId)
+	};
+
+	var update = {
+		$push: {
+			campaigns: campaignObject
+		}
+	};
+
+	campaignsCollection.updateOne(query, update, function(err, result){
+		if(err) {
+			log.error('Campaign service: Unable to add new campaign for user ['+userId+']');
+		} else {
+			log.info('Campaign service: Added campaign to existing user ['+userId+']');
+		}
+		callback(err, result);
+	});
+}
+
 module.exports.saveCampaign = function(fields, files, callback) {
 
 	var campaignsCollection = global.db.collection('campaigns');
-	var validationErrors = isValidCampaignData(fields, files)
+	var validationErrors = isValidCampaignData(fields, files);
 
 	if(validationErrors.length === 0) {
 
@@ -59,30 +105,30 @@ module.exports.saveCampaign = function(fields, files, callback) {
 		campaignsCollection.find({email: fields.email}).limit(1).toArray(function(err, docs) {
 
 			if(err) {
-				logger.error('Campaign service: Unable to find user for saving campaign');
+				log.error('Campaign service: Unable to find user for saving campaign');
 				callback(err);
 			} else {
-				if(docs.length === 0) {
-					var newCampaignWithUser = {
-						email: fields.email,
-						userName: fields.name,
-						campaigns: [campaignObject]
-					};
-					campaignsCollection.insert(newCampaignWithUser, function(err, result) {
-						logger.info('Campaign service: new campaign saved');
-						callback(null, result);
-					});
-				} else {
-					campaignsCollection.updateOne({email: fields.email}, {$push: {campaigns: campaignObject}}, function(err, result){
+				if(docs.length === 0) { //Create new user
+					saveNewUserWithCampaign(fields.email, fields.name, campaignObject, function(err, userId){
 						if(err) {
-							logger.error('Campaign service: Unable to add new campaign for user');
 							callback(err);
 						} else {
-							logger.info('Campaign service: Added campaign to existing user ['+docs[0].email+']');
-							callback(null, result);
+							emailService.notifyOnNewCampaign(fields.email, userId, campaignObject.title);
+							callback(err, {message: 'New user created with id' + userId});
 						}
 					});
+				} else { //Update existing user
+					var userId = docs[0]._id;
+					addNewCampaignToUser(userId, campaignObject, function(err, result) {
+						if(err) {
+							callback(err);
+						} else {
+							emailService.notifyOnNewCampaign(fields.email, userId, campaignObject.title);
+							callback(err, {message: 'Added new campaign for existing user' + userId});
+						}
+					})
 				}
+
 			}
 
 		});
@@ -98,10 +144,10 @@ module.exports.getCampaigns = function (userId, callback) {
 	campaignsCollection.find({_id: new ObjectID(userId)}).limit(1).toArray(function(err, users) {
 
 		if(err) {
-			logger.error('Campaign service: Unable to get campaigns for user ['+userId+']');
+			log.error('Campaign service: Unable to get campaigns for user ['+userId+']');
 			callback(err);
 		} else if(!users[0]) {
-			logger.error('Campaign service: No user with id ['+userId+']');
+			log.error('Campaign service: No user with id ['+userId+']');
 			callback(null, {error: 'No such user'});
 		} else {
 			callback(null, users[0].campaigns);
@@ -134,7 +180,7 @@ module.exports.updateCampaign = function (userId, campaignId, rawCampaign, callb
 
 	campaignsCollection.updateOne(campaignFindQuery, campaignUpdateQuery, function(err, result) {
 		if(err) {
-			logger.error('Campaign service: Unable to update campaign ['+campaignId+'] for user ['+userId+']');
+			log.error('Campaign service: Unable to update campaign ['+campaignId+'] for user ['+userId+']');
 			callback(err);
 		} else {
 			callback(null, result);
@@ -161,7 +207,7 @@ module.exports.deleteCampaign = function (userId, campaignId, callback) {
 
 	campaignsCollection.updateOne(campaignDeleteQuery, campaignUpdateQuery, function(err, result) {
 		if(err) {
-			logger.error('Campaign service: Unable to update campaign ['+campaignId+'] for user ['+userId+']');
+			log.error('Campaign service: Unable to update campaign ['+campaignId+'] for user ['+userId+']');
 			callback(err);
 		} else {
 			callback(null, result);
