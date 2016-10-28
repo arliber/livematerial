@@ -16,7 +16,7 @@ $(function () {
       acceptedFiles: 'image/*',
       autoProcessQueue: false,
       uploadMultiple: true,
-      clickable: true,
+      clickable: false,
       parallelUploads: 100,
       previewTemplate: '<div class="file-attachment"><button data-dz-remove><span data-dz-name></span></button></div>',
       previewsContainer: '#files-container',
@@ -49,6 +49,7 @@ $(function () {
         drop: function() {
           $('#files-container').removeClass('empty').addClass('full');
         },
+
         reset: function() {
             $('#files-container').addClass('empty').removeClass('full');
         }

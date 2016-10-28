@@ -26,7 +26,9 @@ input[type="text"]:focus , textarea:focus, .select2-container--default.select2-c
     border: 1px solid #4A90E2;
     outline: none; /*Remove the annoying glow*/
 }
-
+button {
+    outline: none; /*Remove the annoying glow*/
+}
 /* HEADER */
 
 header {
@@ -239,19 +241,45 @@ nav a:last-child {
 .form-elements #textual-info label:last-child {
     margin-bottom: 0; /*Remove margin for labels for last item*/
 }
+#files-container button {
+    width: 85%;
+    cursor: pointer;
+    border: none;
+    font-size: 12px;
+    color: #A4A2A4;
+    text-align: left;
+    padding: 10px 0 10px 22px;
+    border-bottom: 1px solid #4A90E2;
+    background: url(../img/delete-tiny.png) no-repeat left center;
+    margin-left: 25px;
+}
 
-#files-container.empty {
+#files-container {
     margin-left: 30px;
     flex: 1;
     background: #efefef;
     border: 1px dashed #979797;
     border-radius: 5px;
+    /*Align the content inside*/
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+}
+#files-container.empty {
     background: url(../img/dropzone.png) no-repeat center center;
 }
 #files-container.full {
-    width: 180px;
+    text-align: left;
+    background: none;
+    justify-content: flex-start;
+    border: none;
+    border-left: 1px dashed #979797;
 }
-
+#files-container.full p {
+    display: none;
+}
 #content aside h1 {
     color: #BA68C8;
     border-bottom: 2px solid #BA68C8;
