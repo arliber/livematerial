@@ -33,9 +33,8 @@
                         <h1>LIVE<span>MATERIAL</span></h1>
                     </hgroup>
                     <nav>
-                        <a href="#">Home</a>
-                        <a href="#">Start a campaign</a>
-                        <a href="#">Contact</a>
+                        <a href="#campaign-wizard">Start a campaign</a>
+                        <a href="#contact">Contact</a>
                         <a href="#">Login</a>
                     </nav>
                 </header>
@@ -43,8 +42,8 @@
 
             <section id="hero">
                 <section>
-                    You have something great. Let us prove it to the word.
-                    <button>Generate buzz</button>
+                    You have something great. Let us prove it to the world.
+                    <button class="button default">Get heard</button>
                 </section>
             </section><!-- HERO -->
             
@@ -54,99 +53,117 @@
                         <div>
                             <img src="img/native-only.png" />
                             <h3>Real Articles</h3>
-                            <p>Tell your story & have top site/blogs
-publishing your story</p>
+                            <p>Tell your story & have top sites and blogs publish it</p>
                         </div>
                         <div>
                             <img src="img/immediate-impact.png" />
                             <h3>Readers, not traffic</h3>
-                            <p>Get quality users which are really interested
-in your website, product or app</p>
+                            <p>Get quality users which are really interested in your website, product or app</p>
                         </div>
                         <div>
                             <img src="img/hassle-free.png" />
                             <h3>Hasslle Free</h3>
-                            <p>Send us your material & you are done!
-Zero campaign management needed</p>
+                            <p>Send us your material & you are done! Zero campaign management required</p>
                         </div>
                     </section>
                 </div>
             </div>
-                
-            <div class="container">
-                <form id="campaign-wizard" method="post" action="/api/campaign" class="dropzone" enctype="multipart/form-data">
 
-                    <section id="targeting">
-                        <aside>
-                            <h1>1</h1>
-                            <p>Select your target audiance. You can select multiple categories!</p>
-                        </aside>
-                        <div class="form">
-                            <h1>Targeting</h1>
-                            <div class="form-elements">
-                                <select id="categories" multiple="multiple" name="categories" style="width: 45%">
-                                    <option value="tech">Tech</option>
-                                    <option value="medicine">Medicine</option>
-                                    <option value="motorsport">Motorsport</option>
-                                    <option value="food">Food</option>
-                                </select>
-                                <select id="languages" multiple="multiple" name="languages" style="width: 45%">
-                                    <option value="english">English</option>
-                                    <option value="hebrew">Hebrew</option>
-                                    <option value="russian">Russian</option>
-                                    <option value="german">German</option>
-                                    <option value="french">French</option>
-                                    <option value="italian">Italian</option>
-                                </select>
-                            </div>
-                        </div>
-                    </section>
+            <section id="campaign-wizard">
+                <div class="container">
+                    <form id="campaign-wizard-form" method="post" action="/api/campaign" class="dropzone" enctype="multipart/form-data">
 
-                    <section id="content">
-                        <aside>
-                            <h1>2</h1>
-                            <p>Describe the desired coverage, provide images, vidoes or other complimanary files</p>
-                        </aside>
-                        <div class="form">
-                            <h1>Content</h1>
-                            <div class="form-elements">
-                                <label><input type="radio" name="createArticles" value="true" checked="cchecked"> Generate quallity content for me based on the desicription below</label>
-                                <label><input type="radio" name="createArticles" value="false"> I have my own content (posts, assets etc.)</label>
-
-                                <hr />
-
-                                <div id="content-and-files">
-                                    <div id="textual-info">
-                                        <label><input type="text" name="title" placeholder="Product/Service name"/></label>
-                                        <label><textarea name="description" placeholder="Product/Service description" rows="8"></textarea></label>
-                                    </div>
-                                    
-                                    <div id="files-container" class="empty dz-message">
-                                        <p>Drag & Drop your assets</p>
-                                    </div>
+                        <section id="targeting">
+                            <aside>
+                                <h1>1</h1>
+                                <p>
+                                    We'll compile a list of the best matching publishers based on that
+                                </p>
+                            </aside>
+                            <div class="form">
+                                <h1>Audience</h1>
+                                <div class="form-elements">
+                                    <select id="categories" multiple="multiple" name="categories" style="width: 45%">
+                                        <option value="tech">Tech</option>
+                                        <option value="medicine">Medicine</option>
+                                        <option value="motorsport">Motorsport</option>
+                                        <option value="food">Food</option>
+                                    </select>
+                                    <select id="languages" multiple="multiple" name="languages" style="width: 45%">
+                                        <option value="english">English</option>
+                                        <option value="hebrew">Hebrew</option>
+                                        <option value="russian">Russian</option>
+                                        <option value="german">German</option>
+                                        <option value="french">French</option>
+                                        <option value="italian">Italian</option>
+                                    </select>
                                 </div>
-
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                    <section id="submit-phase">
-                        <aside>
-                            <h1>3</h1>
-                            <p>Get suggested distribution channels by </p>
-                        </aside>
-                        <div class="form">
-                            <h1>Get proposals</h1>
-                            <div class="form-elements">
-                                <label><input type="text" name="name" placeholder="Name"/></label>
-                                <label><input type="text" name="email" placeholder="Email"/></label>
-                                <button type="submit">Get proposals</button>
+                        <section id="content">
+                            <aside>
+                                <h1>2</h1>
+                                <p>
+                                    Select if you want us to write the content for you or if you already have your own.
+                                    <br /><br />
+                                    Describe your business/product in short and upload any assets such as images, videos, full articles etc.
+                                </p>
+                            </aside>
+                            <div class="form">
+                                <h1>Content</h1>
+                                <div class="form-elements">
+                                    <label><input type="radio" name="createArticles" value="true" checked="cchecked"> Generate quallity content for me based on the desicription below</label>
+                                    <label><input type="radio" name="createArticles" value="false"> I have my own content (posts, assets etc.)</label>
+
+                                    <hr />
+
+                                    <div id="content-and-files">
+                                        <div id="textual-info">
+                                            <label><input type="text" name="title" placeholder="Product/Service name"/></label>
+                                            <label><textarea name="description" placeholder="Product/Service description" rows="8"></textarea></label>
+                                        </div>
+
+                                        <div id="files-container" class="empty dz-message">
+                                            <p>Drag & Drop your assets</p>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                        </section>
 
-                </form>
-            </div><!-- /WIZARD -->
+                        <section id="submit-phase">
+                            <aside>
+                                <h1>3</h1>
+                                <p>
+                                    Leave your details and we'll send you a compiled list of matching publishers
+                                </p>
+                            </aside>
+                            <div class="form">
+                                <h1>Get proposals</h1>
+                                <div class="form-elements">
+                                    <label><input type="text" name="name" placeholder="Name"/></label>
+                                    <label><input type="text" name="email" placeholder="Email"/></label>
+                                    <button type="submit">Get proposals</button>
+                                </div>
+                            </div>
+                        </section>
+
+                    </form>
+                    <div id="campaign-wizard-overlay">
+                        <img src="../public/img/checkmark2.gif" height="150" width="150"/>
+                        <h1>Information sent!</h1>
+                        <h2>What now?</h2>
+                        <p>
+                            An email with a unique link to your campaign has been sent. 
+                            <br />
+                            We’ll let you know once we have a list of publishers for you
+                        </p>
+                        <button class="button default">Got it</button>
+                    </div>
+                </div>
+            </section><!-- /WIZARD -->
 
             <section id="about">
                 <div class="container">
@@ -155,8 +172,8 @@ Zero campaign management needed</p>
                         <img src="img/computer.png" />
                         <article>
                             <h2>HOW DOES IT WORK?</h2>
-                            <p>Let our proffesionals copywriters generate that perfect blog posts, tweet or instagram photo. Approve the content and let it spread around the world, generating quality leads for whatever you are trying to achieve. <br /><br />
-        The contnet will continue generating organic traffic long after the camaign has ended.</p>
+                            <p>Our platform is connected to thousands of publishers and blogs, allowing our advertisers to pitch their stories to them. Once approved - your story will appear like every other article the website publishes.</p>
+                            <p>Getting quality traffic and publishing real articles has never been easier!</p>
                         </article>
 
                     </section>
@@ -168,9 +185,9 @@ Zero campaign management needed</p>
                     <article>
                         <h3>Leading Publishers & Blogs </h3>
                         <p>
-                            Your product disorves a coverage in the best publictions, trsuted by the most relvant audiance which are eagure to discover what people like yo have to tell them.
+                            From the small but quality blogs with the most dedicated followers, to the biggest publishers & news portals in the world that everyone reads.
                             <br />
-                            Another line to make it preety, think of something so it looks nice.
+                            Just choose where your article needs to be published, and it will happen.
                         </p>
                     </article>
                     <section id="publisher-logos">
@@ -195,10 +212,10 @@ Zero campaign management needed</p>
                 <div class="small-container">
                     <section id="pricing-content">
                         <article>
-                            <h2>We work for you</h2>
-                            <h3>So the pricing is simple</h3>
-                            <h1>$449</h1>
-                            <p>Up to 5 unique articles <br /> 150,000 reads or more</p>
+                            <h2>Simple pricing</h2>
+                            <h3>starting at</h3>
+                            <h1>149</h1>
+                            <p>For a <b>unique</b> article <br /> 5,000 reads or more</p>
                         </article>
                         <img src="img/pig.jpg" />
                     </section>
