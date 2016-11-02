@@ -41,7 +41,7 @@ databaseService.init(process.env.MONGODB_URI || config.connectionString, functio
   if(err) {
     logger.error('App: aborting due to database connection failure');
   } else {
-    app.listen(config.port, function () {
+    app.listen(process.env.PORT || config.port, function () {
       console.log('Server started on port ['+ config.port +']');
     });
   }
