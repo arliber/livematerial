@@ -52,7 +52,7 @@ $(function () {
                     myDropzone.uploadFiles([mockFile]); //send empty
                 }
 
-                $("#campaign-wizard-overlay").css('display', 'flex').fadeTo('slow', 1);ss('opacity', 0);
+                $("#campaign-wizard-overlay").css('display', 'flex').fadeTo('slow', 1);
 
         });
       },

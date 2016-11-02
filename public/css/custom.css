@@ -355,6 +355,7 @@ nav a:last-child {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 #campaign-wizard-overlay h1 {
     color: #85C996;
