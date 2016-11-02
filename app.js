@@ -37,7 +37,7 @@ app.use(function(err, req, res, next) {
 });
 
 //Start app
-databaseService.init(config.connectionString, function(err) {
+databaseService.init(process.env.MONGODB_URI || config.connectionString, function(err) {
   if(err) {
     logger.error('App: aborting due to database connection failure');
   } else {
