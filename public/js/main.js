@@ -18,6 +18,19 @@ $(function () {
         });
     });
 
+    $('a[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+
     Dropzone.options.campaignWizardForm = {
         maxFiles: 8,
         acceptedFiles: 'image/*',
@@ -53,7 +66,10 @@ $(function () {
                 }
 
                 $("#campaign-wizard-overlay").css('display', 'flex').fadeTo('slow', 1);
-
+                var container = $('body'),
+                    scrollTo = $('#overlay-anchor');
+                container.animate({
+                    scrollTop: scrollTo.offset().top - container.offset().top});
         });
       },
         drop: function() {
