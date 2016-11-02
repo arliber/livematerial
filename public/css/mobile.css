@@ -6,9 +6,11 @@
         order: 1;
         margin: 0;
     }
-    
+    #about-content {
+        flex-direction: column-reverse;
+    }
     #about-content img {
-        display: none;
+        width: 100%;
     }
     #contact {
         flex-direction: column;
