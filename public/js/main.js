@@ -33,7 +33,7 @@ $(function () {
 
     Dropzone.options.campaignWizardForm = {
         maxFiles: 8,
-        acceptedFiles: 'image/*',
+        //acceptedFiles: 'image/*',
         autoProcessQueue: false,
         uploadMultiple: true,
         clickable: false,

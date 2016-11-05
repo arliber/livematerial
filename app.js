@@ -1,7 +1,6 @@
 'use strict';
 
-
-let express = require('express'),
+var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
     cookieParser = require('cookie-parser'),
@@ -11,8 +10,15 @@ let express = require('express'),
     config = require('./config'),
     databaseService = require('./services/database.server.service');
 
+//Init logs
+logger.add(logger.transports.File, {
+    filename: 'logs.log',
+    maxsize: 5242880,
+    maxFiles: 4
+});
+
 //Define app
-let app = express();
+var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -49,3 +55,6 @@ databaseService.init(process.env.MONGODB_URI || config.connectionString, functio
 });
 
 module.exports = app;
+
+
+

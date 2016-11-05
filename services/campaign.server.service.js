@@ -35,11 +35,12 @@ function createCampaignObject(fields, files) {
 
 	//Process files
 	if(files.length > 0) {
+        log.info('Campaign service - createCampaignObject: Adding ['+files.length+'] files');
 		campaignObject.files = [];
 	}
 	files.forEach(function(file){
 		campaignObject.files.push({
-			filename: file.filename,
+			filename: file.filename || file.location,
 			mimetype: file.mimetype,
 			originalName: file.originalname
 		});

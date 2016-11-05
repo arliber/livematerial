@@ -4,9 +4,28 @@ var express = require('express'),
 	router = express.Router(),
 	log = require('winston'),
 	campaignController = require('./controllers/campaign.server.controller'),
-	multer = require( 'multer' );
+    aws = require('aws-sdk'),
+    path = require('path'),
+	multer = require( 'multer' ),
+    multerS3 = require('multer-s3');
 
-var upload   =  multer( { dest: 'uploads/' } );
+//Setup amazon file upload
+var upload = multer({
+    storage: multerS3({
+        s3: new aws.S3(),
+        bucket: 'livematerial',
+        contentType: multerS3.AUTO_CONTENT_TYPE,
+        acl: 'public-read',
+        metadata: function (req, file, cb) {
+            cb(null, {fieldName: file.fieldname});
+        },
+        key: function (req, file, cb) {
+            //cb(null, Date.now().toString());
+            cb(null, Date.now().toString() + path.extname(file.originalname))
+        }
+    })
+});
+//var upload = multer( { dest: 'uploads/' } );
 
 //Home page
 router.get('/', function(req, res, next) {

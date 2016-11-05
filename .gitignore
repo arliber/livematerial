@@ -2,3 +2,4 @@ node_modules/
 .idea/
 uploads/
 npm-debug.log
+logs.log
