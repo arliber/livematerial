@@ -10,12 +10,12 @@ var express = require('express'),
     config = require('./config'),
     databaseService = require('./services/database.server.service');
 
-//Init logs
-logger.add(logger.transports.File, {
+//Init file logger - not supported on Heroku
+/*logger.add(logger.transports.File, {
     filename: 'logs.log',
     maxsize: 5242880,
     maxFiles: 4
-});
+});*/
 
 //Define app
 var app = express();

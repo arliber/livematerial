@@ -21,7 +21,7 @@ var upload = multer({
         },
         key: function (req, file, cb) {
             //cb(null, Date.now().toString());
-            cb(null, Date.now().toString() + path.extname(file.originalname))
+            cb(null, Date.now().toString() + path.extname(file.originalname)); //Append file extension
         }
     })
 });
