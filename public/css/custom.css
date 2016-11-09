@@ -96,9 +96,9 @@ nav a:nth-child(odd):hover {
     border-bottom: 2px solid #4A90E2;
 }
 
-nav a:last-child {
+/*nav a:last-child {
   font-weight: 600;
-}
+}*/
 
 /* HERO */
 
@@ -331,8 +331,7 @@ nav a:last-child {
     border-bottom: 2px solid #A2C86A;
 }
 #submit-phase button {
-    font-style: italic;
-    padding: 5px 30px;
+    padding: 8px 30px;
     margin-top: 15px;
     font-weight: 200;
     width: 100%;
@@ -343,7 +342,7 @@ nav a:last-child {
 }
 #submit-phase button:hover {
     background: #A2C86A;
-    padding: 10px 40px;
+    padding: 14px 40px;
     color: #fff;
     transition: 0.5s;
     
@@ -375,6 +374,7 @@ nav a:last-child {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 15px;
 }
 #campaign-wizard-overlay h1 {
     color: #85C996;
@@ -406,6 +406,11 @@ nav a:last-child {
     font-weight: 200;
 }
 /* PUBLISHERS */
+#publishers-container {
+    background: -moz-linear-gradient(top,  rgba(229,229,229,0.65) 0%, rgba(172,172,172,0) 25%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(top,  rgba(229,229,229,0.65) 0%,rgba(172,172,172,0) 25%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom,  rgba(229,229,229,0.65) 0%,rgba(172,172,172,0) 25%,rgba(0,0,0,0) 100%);
+}
 #publishers {
     display: flex;
     flex-wrap: wrap;
@@ -426,7 +431,9 @@ nav a:last-child {
     justify-content: space-between;
     align-items: center;
     align-content: center;
-
+    padding: 5px;
+    background: #fff;
+    border-radius: 5px;
 }
 #publisher-logos img {
     padding: 0 15px 10px 0;

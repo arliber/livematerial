@@ -4,6 +4,7 @@ var express = require('express'),
 	router = express.Router(),
 	log = require('winston'),
 	campaignController = require('./controllers/campaign.server.controller'),
+    mainController = require('./controllers/main.server.controller'),
     aws = require('aws-sdk'),
     path = require('path'),
 	multer = require( 'multer' ),
@@ -39,7 +40,6 @@ router.get('/client', function(req, res, next) {
 	res.sendFile('public/client.html');
 });
 
-
 //API
 router.post('/api/campaign', upload.any(), function(req, res) {
 	return campaignController.saveCampaign(req, res);
@@ -55,6 +55,10 @@ router.patch('/api/campaign/:userId/:campaignId', function(req, res) {
 
 router.delete('/api/campaign/:userId/:campaignId', function(req, res) {
 	return campaignController.deleteCampaign(req, res); //TODO
+});
+
+router.post('/api/contact', function(req, res) {
+    return mainController.sendContactForm(req, res);
 });
 
 module.exports = router;

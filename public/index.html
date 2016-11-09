@@ -12,6 +12,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/select2.min.css">
+        <link rel="stylesheet" href="css/sweetalert2.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/custom.css">
         <link rel="stylesheet" href="css/mobile.css">
@@ -33,9 +34,9 @@
                         <h1>LIVE<span>MATERIAL</span></h1>
                     </hgroup>
                     <nav>
+                        <a href="#about-content">About</a>
                         <a href="#campaign-wizard">Start a campaign</a>
                         <a href="#contact">Contact</a>
-                        <a href="#">Login</a>
                     </nav>
                 </header>
             </div><!-- HEADER -->
@@ -68,6 +69,21 @@
                     </section>
                 </div>
             </div>
+
+            <section id="about">
+                <div class="container">
+                    <section id="about-content">
+
+                        <img src="img/animated-demo-long.gif" />
+                        <article>
+                            <h2>HOW DOES IT WORK?</h2>
+                            <p>Our platform is connected to thousands of publishers and blogs, allowing our advertisers to pitch their stories to them. Once approved - your story will appear like every other article the website publishes.</p>
+                            <p>Getting quality traffic and publishing real articles has never been easier!</p>
+                        </article>
+
+                    </section>
+                </div>
+            </section><!-- /ABOUT -->
 
             <section id="campaign-wizard">
                 <div class="container">
@@ -160,58 +176,42 @@
                         <img src="../public/img/checkmark2.gif" id="overlay-anchor" height="150" width="150"/>
                         <h1>Information sent!</h1>
                         <h2>What now?</h2>
-                        <p>
-                            An email with a unique link to your campaign has been sent. 
-                            <br />
-                            We’ll let you know once we have a list of publishers for you
-                        </p>
+                        <p>We will build a personalised list of publishers for you, included with KPIs and clear pricing.</p>
+                        <p>You'll hear from us within 48 ours or less!</p>
                         <button class="button default">Got it</button>
                     </div>
                 </div>
             </section><!-- /WIZARD -->
 
-            <section id="about">
+            <section id="publishers-container">
                 <div class="container">
-                    <section id="about-content">
-
-                        <img src="img/animated-demo-long.gif" />
+                    <section id="publishers">
                         <article>
-                            <h2>HOW DOES IT WORK?</h2>
-                            <p>Our platform is connected to thousands of publishers and blogs, allowing our advertisers to pitch their stories to them. Once approved - your story will appear like every other article the website publishes.</p>
-                            <p>Getting quality traffic and publishing real articles has never been easier!</p>
+                            <h3>Leading Publishers & Blogs </h3>
+                            <p>
+                                From the small but quality blogs with the most dedicated followers, to the biggest publishers & news portals in the world that everyone reads.
+                                <br />
+                                Just choose where your article needs to be published, and it will happen.
+                            </p>
                         </article>
-
+                        <section id="publisher-logos">
+                            <img src="img/logos/businessinsider.jpg" />
+                            <img src="img/logos/dailymail.jpg" />
+                            <img src="img/logos/diply.jpg" />
+                            <img src="img/logos/entrepreneur.jpg" />
+                            <img src="img/logos/forbes.jpg" />
+                            <img src="img/logos/forbes.jpg" />
+                            <img src="img/logos/houzz.jpg" />
+                            <img src="img/logos/huffingtonpost.jpg" />
+                            <img src="img/logos/lifehack.jpg" />
+                            <img src="img/logos/lifehacker.jpg" />
+                            <img src="img/logos/metro.png" />
+                            <img src="img/logos/stockhouse.jpg" />
+                            <img src="img/logos/tech.co.jpg" />
+                        </section>
                     </section>
-                </div>
-            </section><!-- /ABOUT -->
-
-            <div class="container">
-                <section id="publishers">
-                    <article>
-                        <h3>Leading Publishers & Blogs </h3>
-                        <p>
-                            From the small but quality blogs with the most dedicated followers, to the biggest publishers & news portals in the world that everyone reads.
-                            <br />
-                            Just choose where your article needs to be published, and it will happen.
-                        </p>
-                    </article>
-                    <section id="publisher-logos">
-                        <img src="img/logos/businessinsider.jpg" />
-                        <img src="img/logos/dailymail.jpg" />
-                        <img src="img/logos/diply.jpg" />
-                        <img src="img/logos/entrepreneur.jpg" />
-                        <img src="img/logos/forbes.jpg" />
-                        <img src="img/logos/forbes.jpg" />
-                        <img src="img/logos/houzz.jpg" />
-                        <img src="img/logos/huffingtonpost.jpg" />
-                        <img src="img/logos/lifehack.jpg" />
-                        <img src="img/logos/lifehacker.jpg" />
-                        <img src="img/logos/metro.png" />
-                        <img src="img/logos/stockhouse.jpg" />
-                        <img src="img/logos/tech.co.jpg" />
-                    </section>
-                </section>
-            </div><!-- /PUBLISHERS -->
+                </div><!-- /PUBLISHERS -->
+            </section>
 
             <section id="pricing">
                 <div class="small-container">
@@ -233,9 +233,9 @@
                         <h1>Contact Us</h1>
                         <label><input type="text" name="contactName" placeholder="Name"></label>
                         <label><input type="text" name="contactEmail" placeholder="Email"></label>
-                        <label><textarea rows="10" placeholder="Message"></textarea></label>
+                        <label><textarea rows="10" name="message" placeholder="Message"></textarea></label>
                     </section>
-                    <button>Send</button>
+                    <button type="submit">Send</button>
                 </form>
                 <section id="info-card">
                     <hgroup>
@@ -270,6 +270,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/vendor/select2.min.js"></script>
+        <script src="js/vendor/sweetalert2.min.js"></script>
         <script src="js/vendor/dropzone.js"></script>
         <script src="js/main.js"></script>
 

@@ -114,7 +114,7 @@ module.exports.saveCampaign = function(fields, files, callback) {
 						if(err) {
 							callback(err);
 						} else {
-							emailService.notifyOnNewCampaign(fields.email, userId, campaignObject.title);
+							emailService.notifyOnNewCampaign(fields.name, fields.email, userId, campaignObject.title);
 							callback(err, {message: 'New user created with id' + userId});
 						}
 					});
@@ -124,7 +124,7 @@ module.exports.saveCampaign = function(fields, files, callback) {
 						if(err) {
 							callback(err);
 						} else {
-							emailService.notifyOnNewCampaign(fields.email, userId, campaignObject.title);
+							emailService.notifyOnNewCampaign(fields.name, fields.email, userId, campaignObject.title);
 							callback(err, {message: 'Added new campaign for existing user' + userId});
 						}
 					})
