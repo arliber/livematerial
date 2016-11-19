@@ -337,7 +337,7 @@ nav a:nth-child(odd):hover {
     color: #A2C86A;
     border-bottom: 2px solid #A2C86A;
 }
-#campaign-wizard-form button {
+#campaign-wizard-form #submit-phase button {
     padding: 8px 30px;
     width: 100%;
     border: 2px solid #4A90E2;
