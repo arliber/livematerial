@@ -1,10 +1,20 @@
 @media (max-width: 48em) { /*Tablets, small screens*/
     #campaign-wizard section {
-        flex-direction: column
+        flex-direction: column;
+    }
+    #campaign-wizard #submit-phase .form {
+        flex: 1;
     }
     #campaign-wizard aside {
         order: 1;
         margin: 0;
+    }
+    #targeting .form-elements {
+        flex-direction: column;
+    }
+    #targeting .form-elements #categories + span {
+        margin-right: 0;
+        margin-bottom: 15px;
     }
     #about-content {
         flex-direction: column-reverse;
@@ -28,6 +38,10 @@
 @media (max-width: 35em) { /*Mobile*/
     nav {
         opacity: 0;
+    }
+    #campaign-wizard #contact-details .form-elements {
+        display: flex;
+        flex-direction: column;
     }
     #features {
         flex-direction: column;

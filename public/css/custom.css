@@ -62,7 +62,7 @@ header hgroup {
 
 hgroup h1 {
     color: #B1B1B1;
-    font-size: 25px;
+    font-size: 18px;
     margin-left: 16px
 }
 hgroup h1 span {
@@ -74,7 +74,9 @@ header#logo {
     width: 72px;
     height: 68px;
 }
-
+header hgroup h1 {
+    font-size: 25px;
+}
 nav {
     text-transform: uppercase;
     font-size: 13px;
@@ -228,6 +230,9 @@ nav a:nth-child(odd):hover {
 }
 #targeting .form-elements  select {
     /*Invisible element because select2 hides it*/
+}
+#targeting .form-elements #categories + span {
+    margin-right: 15px;
 }
 #targeting aside h1 {
     color: #4A90E2;
@@ -408,9 +413,11 @@ nav a:nth-child(odd):hover {
 }
 /* PUBLISHERS */
 #publishers-container {
-    background: -moz-linear-gradient(top,  rgba(229,229,229,0.65) 0%, rgba(172,172,172,0) 25%, rgba(0,0,0,0) 100%);
+    /*background: -moz-linear-gradient(top,  rgba(229,229,229,0.65) 0%, rgba(172,172,172,0) 25%, rgba(0,0,0,0) 100%);
     background: -webkit-linear-gradient(top,  rgba(229,229,229,0.65) 0%,rgba(172,172,172,0) 25%,rgba(0,0,0,0) 100%);
-    background: linear-gradient(to bottom,  rgba(229,229,229,0.65) 0%,rgba(172,172,172,0) 25%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom,  rgba(229,229,229,0.65) 0%,rgba(172,172,172,0) 25%,rgba(0,0,0,0) 100%);*/
+    background: url(../img/publishers-bg.jpg) repeat-x;
+    padding: 30px 0;
 }
 #publishers {
     display: flex;
