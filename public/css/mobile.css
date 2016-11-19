@@ -5,6 +5,9 @@
     #campaign-wizard #submit-phase .form {
         flex: 1;
     }
+    #campaign-wizard #contact-details .form {
+        flex: 1;
+    }
     #campaign-wizard aside {
         order: 1;
         margin: 0;
