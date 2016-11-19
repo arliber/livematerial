@@ -2,12 +2,12 @@ $(function () {
     'use strict';
 
     $('#categories').select2({
-          placeholder: 'Select categories',
+          placeholder: 'Categories',
           allowClear: true
     });
 
     $('#languages').select2({
-          placeholder: 'Select languages',
+          placeholder: 'Languages',
           allowClear: true
     });
 
