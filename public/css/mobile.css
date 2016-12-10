@@ -19,6 +19,9 @@
         margin-right: 0;
         margin-bottom: 15px;
     }
+    #submit-phase aside { /*It adds extra space on top on mobiles - so hide it*/
+        display: none;
+    }
     #about-content {
         flex-direction: column-reverse;
     }
@@ -49,10 +52,10 @@
     #features {
         flex-direction: column;
     }
-    #features div:nth-child(1), #features div:nth-child(2)  {
+    #features div:nth-child(1), #features div:nth-child(2), #features div:nth-child(3)  {
         border-bottom: 1px solid #C7C7C7;
     }
-    #features div:nth-child(2) {
+    #features div:nth-child(2), #features div:nth-child(3)  {
         border-right: none;
         border-left: none;
     }
@@ -60,7 +63,6 @@
         width: 250px;
         transition: 0.5s;
     }
-    
     #publishers article {
         flex: 1 1 100%;
     }

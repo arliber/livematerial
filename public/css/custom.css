@@ -143,11 +143,17 @@ nav a:nth-child(odd):hover {
 
 #features div {
     flex: 1;
-    padding: 15px
+    padding: 30px 15px 15px 15px;
+}
+#features div img {
+    height: 60px;
 }
 #features div:nth-child(2) {
     border-right: 1px solid #C7C7C7;
     border-left: 1px solid #C7C7C7;
+}
+#features div:nth-child(3) {
+    border-right: 1px solid #C7C7C7;
 }
 #features div h3 {
     font-family: 'Quattrocento', serif;
@@ -337,6 +343,9 @@ nav a:nth-child(odd):hover {
     color: #A2C86A;
     border-bottom: 2px solid #A2C86A;
 }
+#campaign-wizard-form #submit-phase {
+    margin-bottom: 20px;
+}
 #campaign-wizard-form #submit-phase button {
     padding: 8px 30px;
     width: 100%;
@@ -483,6 +492,7 @@ nav a:nth-child(odd):hover {
     margin: 0;
 }
 #pricing-content article p {
+    margin: 0;
     font-weight: 100;
     font-size: 14px;
     word-spacing: 0.2em;
