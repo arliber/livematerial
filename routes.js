@@ -29,9 +29,9 @@ var upload = multer({
 //var upload = multer( { dest: 'uploads/' } );
 
 //Home page
-router.get('/', function(req, res, next) {
+router.get('/campaign/:campaignId', function(req, res, next) {
   log.info('GET request to /');
-  res.redirect('public/index.html');
+  res.sendFile(path.join(__dirname+'/public/campaignManager.html'));
 });
 
 //Client area

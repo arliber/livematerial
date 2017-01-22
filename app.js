@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //Serve all files from /public directory
+app.use('/campaign', express.static(path.join(__dirname, 'public'))); //Ugly workaround
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); //Serve favicon
 app.use('/', routes); //Register app routes
 
