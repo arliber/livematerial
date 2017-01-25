@@ -46,13 +46,28 @@ i { color: #4A90E2; }
     border-top: 1px solid #eeeeee;
 }
 
+.message {
+    margin-top: 15px;
+    padding: 20px 15px;
+    line-height: 20px;
+    background-color: #4a90e2;
+    color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+}
+
 /*ASIDE*/
 aside {
-    flex: 0 0 16em;
+    flex: 0 0 15em;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+@media (max-width: 48em) {
+    aside {
+        display: none;
+    }
 }
 
     /* NAV */
@@ -84,6 +99,9 @@ aside {
         color: #B1B1B1;
         font-size: 14px;
         border-top: 1px solid #eeeeee;
+    }
+    #secondary-menu li {
+        margin-bottom: 10px;
     }
 
 /*SCREEN*/
@@ -143,9 +161,6 @@ section#screen {
         margin: 0 0 10px 10px;
         font-size: 14px;
     }
-    #campaigns .creation-date i {
-        margin-right: 5px;
-    }
     #campaigns .card:hover {
         cursor: pointer;
         box-shadow: 0 12px 20px -10px rgba(29, 137, 255, 0.53), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
@@ -168,9 +183,6 @@ section#screen {
     }
     .site-link {
         text-align: center;
-    }
-    .site-link i {
-        margin-left: 5px;
     }
     .site-meta {
         display: flex;

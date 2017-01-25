@@ -11,6 +11,7 @@ function isValidCampaignData(fields, files) {
 function createCampaignObject(fields, files) {
 	var campaignObject = {
 		_id: new ObjectID(),
+        createDate: new Date(),
 		title: fields.title,
 		description: fields.description,
 		createArticles: fields.createArticles
@@ -55,6 +56,7 @@ function saveNewUserWithCampaign(email, userName, campaignObject, callback) {
 
 	var newCampaignWithUser = {
 		email: email,
+        createDate: new Date(),
 		userName: userName,
 		campaigns: [campaignObject]
 	};
@@ -144,16 +146,16 @@ module.exports.saveCampaign = function(fields, files, callback) {
 module.exports.getCampaigns = function (userId, callback) {
 
 	var campaignsCollection = global.db.collection('campaigns');
-	campaignsCollection.find({_id: new ObjectID(userId)}).limit(1).toArray(function(err, users) {
+	campaignsCollection.findOne({"_id" : ObjectID(userId)}, function(err, user) {
 
 		if(err) {
 			log.error('Campaign service: Unable to get campaigns for user ['+userId+']');
 			callback(err);
-		} else if(!users[0]) {
+		} else if(!user) {
 			log.error('Campaign service: No user with id ['+userId+']');
 			callback(null, {error: 'No such user'});
 		} else {
-			callback(null, users[0].campaigns);
+			callback(null, user);
 		}
 
 	});

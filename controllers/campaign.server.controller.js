@@ -55,3 +55,13 @@ module.exports.deleteCampaign = function(req, res) {
 
 };
 
+module.exports.updateBooking = function(req, res) {
+    logger.info('Router: Booking..');
+    return campaignService.updateCampaign(req.params.userId, req.params.campaignId, req.body, function(err, result){
+        if(err) {
+            res.status(500).json(result);
+        } else {
+            res.status(200).json(result);
+        }
+    });
+};

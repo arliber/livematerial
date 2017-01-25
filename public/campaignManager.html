@@ -42,10 +42,16 @@
                     </ul>
                 </nav><!-- /container for flex -->
                 <ul id="secondary-menu">
-                    <li><i class="fa fa-user" aria-hidden="true"></i>
-                        Logged in as Arik</li>
-                    <li><a href="http://livematerial.io"><i class="fa fa-sign-out" aria-hidden="true"></i>
-                         Logout</a></li>
+                    <li>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        Logged in as <span id="userName"></span>
+                    </li>
+                    <li>
+                        <a href="http://livematerial.io">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                            Logout
+                        </a>
+                    </li>
                 </ul>
             </aside>
 
@@ -56,7 +62,7 @@
                         <a class="bttn-fill bttn-sm bttn-primary" href="http://www.livematerial.io/#campaign-wizard">New campaign</a>
                     </header>
                     <ul id="campaigns">
-                        <li class="card selected">
+                        <!--<li class="card selected">
                             <div class="card-content">
                                 <h2>My Campaign</h2>
                                 <ul class="categories">
@@ -70,13 +76,13 @@
                                 </div>
                             </div>
                             <div class="card-footer has-propositions">5 Propositions</div>
-                        </li>
+                        </li>-->
                     </ul>
                 </section>
                 <section><!-- PROPOSITIONS -->
                     <h1>Propositions</h1>
                     <ul id="propositions">
-                        <li class="card">
+                        <!--<li class="card">
                             <img src="img/capture.png" class="card-header" />
                             <div class="card-content">
                                 <div class="site-link">
@@ -90,8 +96,13 @@
                             <div class="card-footer">
                                 <button class="bttn-fill bttn-sm bttn-primary bttn-block">Book now</button>
                             </div>
-                        </li>
+                        </li>-->
                     </ul>
+                    <div class="message" id="no-propositions">
+                        No propositions have been added yet.
+                        <br />
+                        Please contact support if the campaigns was created 48 hours or more ago.
+                    </div>
                 </section>
             </section>
 
