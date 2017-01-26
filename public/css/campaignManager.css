@@ -137,6 +137,7 @@ section#screen {
 }
     /* CAMPAIGNS */
     #campaigns .card {
+        max-width: 280px;
         flex: 1 1 200px;
         margin-right: 15px;
     }
@@ -175,6 +176,9 @@ section#screen {
         color: #A2C86A;
     }
     /* PROPOSITIONS */
+    #propositions {
+        justify-content: center;
+    }
     #select-campaign {
         display: flex;
         align-items: center;
