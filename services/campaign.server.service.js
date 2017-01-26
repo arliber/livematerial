@@ -11,6 +11,7 @@ function isValidCampaignData(fields, files) {
 function createCampaignObject(fields, files) {
 	var campaignObject = {
 		_id: new ObjectID(),
+        createDate: new Date(),
 		title: fields.title,
 		description: fields.description,
 		createArticles: fields.createArticles
@@ -55,6 +56,7 @@ function saveNewUserWithCampaign(email, userName, campaignObject, callback) {
 
 	var newCampaignWithUser = {
 		email: email,
+        createDate: new Date(),
 		userName: userName,
 		campaigns: [campaignObject]
 	};
@@ -92,6 +94,22 @@ function addNewCampaignToUser(userId, campaignObject, callback) {
 		}
 		callback(err, result);
 	});
+}
+
+function getPropositionFromResult(propositionId, campaigns) {
+    var allPropositions = campaigns.reduce((acc, campaign) => {
+        if(campaign.propositions) {
+            acc.push(campaign.propositions)
+        }
+        return acc;
+    }, []);
+
+    var mergedPropositions = [].concat.apply([], allPropositions);
+
+    return mergedPropositions.find((proposition) => {
+        return proposition._id && proposition._id.equals(ObjectID(propositionId));
+    });
+
 }
 
 module.exports.saveCampaign = function(fields, files, callback) {
@@ -144,16 +162,16 @@ module.exports.saveCampaign = function(fields, files, callback) {
 module.exports.getCampaigns = function (userId, callback) {
 
 	var campaignsCollection = global.db.collection('campaigns');
-	campaignsCollection.find({_id: new ObjectID(userId)}).limit(1).toArray(function(err, users) {
+	campaignsCollection.findOne({"_id" : ObjectID(userId)}, function(err, user) {
 
 		if(err) {
 			log.error('Campaign service: Unable to get campaigns for user ['+userId+']');
 			callback(err);
-		} else if(!users[0]) {
+		} else if(!user) {
 			log.error('Campaign service: No user with id ['+userId+']');
 			callback(null, {error: 'No such user'});
 		} else {
-			callback(null, users[0].campaigns);
+			callback(null, user);
 		}
 
 	});
@@ -216,5 +234,45 @@ module.exports.deleteCampaign = function (userId, campaignId, callback) {
 			callback(null, result);
 		}
 	});
+
+};
+
+module.exports.updateProposition = function(propositionId, isBooked, callback) {
+    var campaignsCollection = global.db.collection('campaigns');
+    var propositionQuery = {'campaigns.propositions._id': ObjectID(propositionId)};
+
+    campaignsCollection.findOne(propositionQuery, function(err, user) {
+
+        //Find
+        var campaignIndex = -1,
+            propositionIndex = -1;
+
+        for(var i = 0; i < user.campaigns.length && campaignIndex === -1; i++) {
+            for (var j = 0; user.campaigns[i].propositions && j <  user.campaigns[i].propositions.length && propositionIndex === -1; j++) {
+                if (user.campaigns[i].propositions[j]._id.equals(ObjectID(propositionId))) {
+                    user.campaigns[i].propositions[j].isBooked = isBooked;
+                    campaignIndex = i;
+                    propositionIndex = j;
+                }
+            }
+        }
+        //Update
+        var propositionsUpdateQuery = {
+            $set: {
+                'campaigns.$.propositions': user.campaigns[campaignIndex].propositions
+            }
+        };
+
+        campaignsCollection.findOneAndUpdate(propositionQuery, propositionsUpdateQuery, { returnOriginal: false }, function (err, result) {
+            if (err) {
+                log.error('Campaign service: Unable to update propositions [' + propositionId + ']', err);
+                callback(err);
+            } else {
+                var proposition = getPropositionFromResult(propositionId, result.value.campaigns);
+                callback(null, proposition);
+            }
+        });
+
+    });
 
 };

@@ -29,9 +29,9 @@ var upload = multer({
 //var upload = multer( { dest: 'uploads/' } );
 
 //Home page
-router.get('/', function(req, res, next) {
+router.get('/campaign/:campaignId', function(req, res, next) {
   log.info('GET request to /');
-  res.redirect('public/index.html');
+  res.sendFile(path.join(__dirname+'/public/campaignManager.html'));
 });
 
 //Client area
@@ -59,6 +59,10 @@ router.delete('/api/campaign/:userId/:campaignId', function(req, res) {
 
 router.post('/api/contact', function(req, res) {
     return mainController.sendContactForm(req, res);
+});
+
+router.patch('/api/proposition/:propositionId', function(req, res) {
+    return campaignController.updateProposition(req, res);
 });
 
 module.exports = router;
