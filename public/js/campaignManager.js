@@ -178,7 +178,7 @@ $(function(){
         $('ul#campaigns').on('click', 'li', loadCampaign);
 
     } else {
-        //TODO: Redirect
+        window.location = 'http://livematerial.io';
     }
 
 });
