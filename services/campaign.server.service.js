@@ -96,6 +96,22 @@ function addNewCampaignToUser(userId, campaignObject, callback) {
 	});
 }
 
+function getPropositionFromResult(propositionId, campaigns) {
+    var allPropositions = campaigns.reduce((acc, campaign) => {
+        if(campaign.propositions) {
+            acc.push(campaign.propositions)
+        }
+        return acc;
+    }, []);
+
+    var mergedPropositions = [].concat.apply([], allPropositions);
+
+    return mergedPropositions.find((proposition) => {
+        return proposition._id && proposition._id.equals(ObjectID(propositionId));
+    });
+
+}
+
 module.exports.saveCampaign = function(fields, files, callback) {
 
 	var campaignsCollection = global.db.collection('campaigns');
@@ -218,5 +234,45 @@ module.exports.deleteCampaign = function (userId, campaignId, callback) {
 			callback(null, result);
 		}
 	});
+
+};
+
+module.exports.updateProposition = function(propositionId, isBooked, callback) {
+    var campaignsCollection = global.db.collection('campaigns');
+    var propositionQuery = {'campaigns.propositions._id': ObjectID(propositionId)};
+
+    campaignsCollection.findOne(propositionQuery, function(err, user) {
+
+        //Find
+        var campaignIndex = -1,
+            propositionIndex = -1;
+
+        for(var i = 0; i < user.campaigns.length && campaignIndex === -1; i++) {
+            for (var j = 0; user.campaigns[i].propositions && j <  user.campaigns[i].propositions.length && propositionIndex === -1; j++) {
+                if (user.campaigns[i].propositions[j]._id.equals(ObjectID(propositionId))) {
+                    user.campaigns[i].propositions[j].isBooked = isBooked;
+                    campaignIndex = i;
+                    propositionIndex = j;
+                }
+            }
+        }
+        //Update
+        var propositionsUpdateQuery = {
+            $set: {
+                'campaigns.$.propositions': user.campaigns[campaignIndex].propositions
+            }
+        };
+
+        campaignsCollection.findOneAndUpdate(propositionQuery, propositionsUpdateQuery, { returnOriginal: false }, function (err, result) {
+            if (err) {
+                log.error('Campaign service: Unable to update propositions [' + propositionId + ']', err);
+                callback(err);
+            } else {
+                var proposition = getPropositionFromResult(propositionId, result.value.campaigns);
+                callback(null, proposition);
+            }
+        });
+
+    });
 
 };

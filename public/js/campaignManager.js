@@ -63,8 +63,10 @@ $(function(){
         setUserName(data);
     }
 
-    function notifyLoadError(error) {
-        console.log(error);
+    function notifyOnError(message) {
+        return function() {
+            console.log(message);
+        };
     }
 
     function getCampaignById(campaignId) {
@@ -76,7 +78,8 @@ $(function(){
     }
 
     function getPropositionUrl(proposition) {
-        return $('<img src="img/capture.png" class="card-header" />');
+        var url = 'http://api.screenshotlayer.com/api/capture?access_key=2eb3463320df86892a4e5ff2a3c33f09&url='+proposition.url+'&width=250';
+        return $('<img src="'+url+'" class="card-header" />');
     }
 
     function getPropositionContent(proposition) {
@@ -95,15 +98,44 @@ $(function(){
     }
 
     function getPropositionFooter(proposition) {
-        return $('<div class="card-footer"><button class="bttn-fill bttn-sm bttn-primary bttn-block" data-id="'+proposition._id+'">Book now</button></div>');
+        var buttonValue = (proposition.isBooked === true);
+        var buttonText = buttonValue ? 'Unbook' : 'Book now!';
+        return $('<div class="card-footer"><button class="bttn-fill bttn-sm bttn-primary bttn-block bttn-no-outline" data-isBooked="'+buttonValue+'">'+buttonText+'</button></div>');
+    }
+
+    function bookingUpdated($button) {
+        return function(data) {
+            var buttonValue = (data.isBooked === true);
+            var buttonText = buttonValue ? 'Unbook' : 'Book now!';
+            $button.text(buttonText)
+                    .attr('data-isBooked', buttonValue);
+        };
+    }
+
+    function bookProposition() {
+        $(this).blur();
+        var propositionId = $(this).parents('li.card').attr('data-id');
+        var isBooked = $(this).attr('data-isBooked') === 'true';
+
+        $.ajax({
+            url: '/api/proposition/' + propositionId,
+            method: 'PATCH',
+            data: {
+                isBooked: !isBooked
+            },
+            success: bookingUpdated($(this)),
+            error: notifyOnError('Unable to update proposition booking')
+        });
     }
 
     function getProposition(proposition) {
-        var $li = $('<li>', {class: 'card'});
+        var $li = $('<li>', {class: 'card', 'data-id': proposition._id});
 
         $li.append(getPropositionUrl(proposition))
             .append(getPropositionContent(proposition))
             .append(getPropositionFooter(proposition));
+
+        $li.on('click', 'button', bookProposition)
 
         return $li;
     }
@@ -111,7 +143,7 @@ $(function(){
     function loadPropositions(campaign) {
         $propositions = $('#propositions');
         $propositions.empty();
-
+        $('#select-campaign').fadeOut();
         if(campaign.propositions && campaign.propositions.length > 0) {
             $('#no-propositions').hide();
             $('#propositions').slideUp();
@@ -140,12 +172,13 @@ $(function(){
         $.ajax({
             url: '/api/campaign/' + urlSegments[urlSegments.length - 1],
             success: loadUserData,
-            error: notifyLoadError
+            error: notifyOnError('Error in loading campaigns')
         });
 
         $('ul#campaigns').on('click', 'li', loadCampaign);
+
     } else {
-        //TODO: Some error
+        //TODO: Redirect
     }
 
 });

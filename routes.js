@@ -61,8 +61,8 @@ router.post('/api/contact', function(req, res) {
     return mainController.sendContactForm(req, res);
 });
 
-router.patch('/api/user/:userId/campaign/:campaignId/proposition/:propositionId', function(req, res) {
-    return campaignController.bookProposition(req, res);
+router.patch('/api/proposition/:propositionId', function(req, res) {
+    return campaignController.updateProposition(req, res);
 });
 
 module.exports = router;
