@@ -214,5 +214,10 @@ section#screen {
     #propositions li {
         margin-right: 15px;
     }
+    #propositions li img {
+        width: 250px;
+        height: 156px;
+        background: #fff url(../img/screenshot-placeholder.png) no-repeat center center;
+    }
 
 

@@ -79,7 +79,7 @@ $(function(){
 
     function getPropositionUrl(proposition) {
         var url = 'http://api.screenshotlayer.com/api/capture?access_key=2eb3463320df86892a4e5ff2a3c33f09&url='+proposition.url+'&width=250';
-        return $('<img src="'+url+'" class="card-header" />');
+        return $('<img src="'+url+'" class="card-header" onerror="this.src = \'\';"/>');
     }
 
     function getPropositionContent(proposition) {
