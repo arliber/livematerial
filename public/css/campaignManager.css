@@ -15,7 +15,14 @@ a {
     text-decoration: none;
 }
 i { color: #4A90E2; }
-
+.label {
+    margin-right: 5px;
+    color: #fff;
+    background: #49a535;
+    padding: 2px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+}
 /* CARD */
 .card {
     transition: box-shadow 0.2s ease-in-out;
@@ -202,7 +209,12 @@ section#screen {
         text-align: center;
     }
     .site-link {
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .site-link i {
+        margin-left: 5px;
     }
     .site-meta {
         display: flex;

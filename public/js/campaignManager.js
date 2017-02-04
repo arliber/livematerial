@@ -85,8 +85,15 @@ $(function(){
     function getPropositionContent(proposition) {
         var $propositionContent = $('<div>', {class:'card-content'});
 
-        var $sietLink = $('<div class="site-link"><a href="'+ proposition.url +'" target="_blank">'+ proposition.title +'</a> <i class="fa fa-external-link" aria-hidden="true"></i></div>');
+        //Link section
+        var $sietLink = $('<div>', {class:'site-link'});
+        if(proposition.isNew) {
+            $sietLink.append('<span class="label">NEW</span>');
+        }
+        $sietLink.append('<a href="'+ proposition.url +'" target="_blank">'+ proposition.title +'</a>')
+                .append('<i class="fa fa-external-link" aria-hidden="true"></i>');
 
+        //Meta data section
         var $meta = $('<ul>', {class:'site-meta'});
         $meta.append('<li><i class="fa fa-line-chart" aria-hidden="true"></i> Traffic: '+proposition.traffic+'</li>')
              .append('<li><i class="fa fa-credit-card" aria-hidden="true"></i> Price: '+proposition.price+'</li>');
