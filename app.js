@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express'),
+    cors = require('cors'),
     path = require('path'),
     favicon = require('serve-favicon'),
     cookieParser = require('cookie-parser'),
@@ -25,7 +26,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //Serve all files from /public directory
 app.use('/campaign', express.static(path.join(__dirname, 'public'))); //Ugly workaround
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico'))); //Serve favicon
+app.use(cors());
 app.use('/', routes); //Register app routes
+
 
 
 //404 errors

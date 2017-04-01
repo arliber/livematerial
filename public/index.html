@@ -21,6 +21,7 @@
 
         <!--<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i" rel="stylesheet">-->
         <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700|Quattrocento:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
         <!-- Edit this at: https://fonts.google.com/?query=quattrocento&selection.family=Quattrocento+Sans:400,700|Quattrocento:400,700 -->
 
     </head>
@@ -33,25 +34,85 @@
 
             <div class="container">
                 <header>
-                    <hgroup>
-                        <img src="img/logo.png" id="logo"/>
-                        <h1>LIVE<span>MATERIAL</span></h1>
-                    </hgroup>
+                    <img src="img/logo-2-small.png" id="logo"/>
                     <nav>
-                        <a href="#about-content">About</a>
-                        <a href="#campaign-wizard">Start a campaign</a>
-                        <a href="#contact">Contact</a>
+                        <a href="#contact">Join</a>
                     </nav>
                 </header>
             </div><!-- HEADER -->
 
             <section id="hero">
                 <section>
-                    <p>You have something great. Let us tell it to the world.</p>
-                    <a href="#campaign-wizard" class="button default">Get heard</a>
+                    <p>Pre-written articles based on real research and hot topics, for you to publish</p>
+                    <a href="#campaign-wizard" class="button default">Join us</a>
                 </section>
             </section><!-- HERO -->
-            
+
+            <section id="publications">
+                <h3>Our content has been featured on:</h3>
+            </section>
+
+            <section id="overview">
+                <div class="container">
+                    <!--<header>
+                        <hr />
+                        <h1>Publish now </h1>
+                        <hr />
+                    </header>-->
+                    <section>
+
+                        <section id="overview-1">
+                            <img src="img/overview-2.jpg" />
+                            <aside>
+                                <h1>Interest aggregation</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eu quam eu lorem fermentum ullamcorper sed nec sapien. Integer pulvinar eget tortor nec egestas. Nam ante tortor, bibendum ut magna vitae, lobortis semper libero. Maecenas ultricies sit amet neque eu tristique. Nam sit amet tortor non ante gravida ullamcorper eu eget leo. Sed ut cursus lectus. In quis dignissim eros.
+                                </p>
+                            </aside>
+
+                        </section>
+
+                        <section id="overview-2">
+
+                            <aside>
+                                <h1>Research and content generation</h1>
+                                <p>
+                                    Aenean vestibulum risus convallis, dignissim ligula fringilla, malesuada tortor. Pellentesque molestie neque risus, et sagittis nisi laoreet et. Vestibulum venenatis arcu lorem, ut cursus magna iaculis id. Praesent vel pulvinar metus. Vestibulum odio mi, dapibus mattis sapien non, volutpat laoreet est. Pellentesque condimentum placerat sapien.
+                                </p>
+                            </aside>
+                            <img src="img/overview-1.jpg" />
+                        </section>
+
+                        <section id="overview-3">
+                            <img src="img/overview-2.jpg" />
+                            <aside>
+                                <h1>Content distribution</h1>
+                                <p>
+                                    Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed blandit, est vitae consequat luctus, sem lorem rhoncus sapien, nec luctus sem nulla quis odio. Aliquam tellus eros, condimentum in quam eu, tincidunt euismod lorem. Nulla scelerisque sem bibendum erat aliquam malesuada. Integer accumsan, eros eu hendrerit gravida, augue arcu hendrerit tellus, non suscipit risus lorem id tortor. Cras sapien tellus, pharetra ac tristique eget, dapibus eu quam. Pellentesque tempor urna tortor, nec condimentum lorem venenatis ut.
+                                </p>
+                            </aside>
+
+                        </section>
+
+                    </section>
+                </div>
+            </section><!-- /OVERVIEW -->
+
+            <section id="about">
+                <!--<div id="about-bg"></div>-->
+                <div class="container">
+                    <section id="about-content">
+
+                        <article>
+                            <h2>How does it work?</h2>
+                            <p>Our platform is connected to thousands of publishers and blogs, allowing our advertisers to pitch their stories to them. Once approved - your story will appear like every other article the website publishes.</p>
+                            <p>Getting quality traffic and publishing real articles has never been easier!</p>
+                        </article>
+
+                    </section>
+                </div>
+            </section><!-- /ABOUT -->
+
             <div class="features-container">
                 <div class="container">
                     <section id="features">
@@ -79,214 +140,26 @@
                 </div>
             </div>
 
-            <section id="about">
-                <div class="container">
-                    <section id="about-content">
-
-                        <img src="img/animated-demo-long.gif" />
-                        <article>
-                            <h2>How does it work?</h2>
-                            <p>Our platform is connected to thousands of publishers and blogs, allowing our advertisers to pitch their stories to them. Once approved - your story will appear like every other article the website publishes.</p>
-                            <p>Getting quality traffic and publishing real articles has never been easier!</p>
-                        </article>
-
-                    </section>
-                </div>
-            </section><!-- /ABOUT -->
-
-            <section id="campaign-wizard">
-                <div class="container">
-                    <hgroup>
-                        <hr />
-                        <h1>Publish now </h1>
-                        <hr />
-                    </hgroup>
-                    <form id="campaign-wizard-form" method="post" action="/api/campaign" class="dropzone" enctype="multipart/form-data">
-
-                        <section id="targeting">
-                            <aside>
-                                <h1>1</h1>
-                                <p>
-                                    We'll compile a list of the best matching publishers based on that
-                                </p>
-                            </aside>
-                            <div class="form">
-                                <h1>Audience</h1>
-                                <div class="form-elements">
-                                    <select id="categories" multiple="multiple" name="categories" style="width: 100%">
-                                        <option value="fashion">Fashion</option>
-                                        <option value="business">Business</option>
-                                        <option value="tech">Tech</option>
-                                        <option value="gaming">Gaming</option>
-                                        <option value="beauty">Beauty</option>
-                                        <option value="health">Health</option>
-                                        <option value="lifestyle">Lifestyle</option>
-                                        <option value="parenting">Parenting</option>
-                                        <option value="celebrity">Celebrity</option>
-                                        <option value="news">News</option>
-                                        <option value="sport">Sport</option>
-                                        <option value="political">Political</option>
-                                        <option value="food">Food</option>
-                                        <option value="music">Music</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                    <select id="languages" multiple="multiple" name="languages" style="width: 100%">
-                                        <option value="english">English</option>
-                                        <option value="hebrew">Hebrew</option>
-                                        <option value="russian">Russian</option>
-                                        <option value="german">German</option>
-                                        <option value="french">French</option>
-                                        <option value="italian">Italian</option>
-                                        <option value="other">Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="content">
-                            <aside>
-                                <h1>2</h1>
-                                <p>
-                                    Select if you want us to write the content for you or if you already have your own.
-                                    <br /><br />
-                                    Describe your business/product in short and upload any assets such as images, videos, full articles etc.
-                                </p>
-                            </aside>
-                            <div class="form">
-                                <h1>Content</h1>
-                                <div class="form-elements">
-                                    <label><input type="radio" name="createArticles" value="true" checked="checked"> Generate quality content for me based on the description below</label>
-                                    <label><input type="radio" name="createArticles" value="false"> I have my own content (posts, assets etc.)</label>
-
-                                    <hr />
-
-                                    <div id="content-and-files">
-                                        <div id="textual-info">
-                                            <label><input type="text" name="title" placeholder="Product/Service name"/></label>
-                                            <label><textarea name="description" placeholder="Product/Service description" rows="8"></textarea></label>
-                                        </div>
-
-                                        <div id="files-container" class="empty dz-message">
-                                            <p>Drag & Drop your assets</p>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="contact-details">
-                            <aside>
-                                <h1>3</h1>
-                                <p>
-                                    Leave your details and we'll send you a compiled list of matching publishers
-                                </p>
-                            </aside>
-                            <div class="form">
-                                <h1>Contact details</h1>
-                                <div class="form-elements">
-                                    <label><input type="text" name="name" placeholder="Name"/></label>
-                                    <label><input type="text" name="email" placeholder="Email"/></label>
-                                </div>
-                            </div>
-                        </section>
-
-                        <section id="submit-phase">
-                            <aside></aside>
-                            <div class="form">
-                                <button type="submit">Get proposals</button>
-                            </div>
-                        </section>
-                    </form>
-
-                    <div id="campaign-wizard-overlay">
-                        <img src="img/checkmark2.gif" id="overlay-anchor" height="150" width="150"/>
-                        <h1>Information sent!</h1>
-                        <h2>What now?</h2>
-                        <p>We will build a personalised list of publishers for you, included with KPIs and clear pricing.</p>
-                        <p>You'll hear from us within 48 ours or less!</p>
-                        <button class="button default">Got it</button>
-                    </div>
-
-                </div>
-            </section><!-- /WIZARD -->
-
-            <section id="publishers-container">
-                <div class="container">
-                    <section id="publishers">
-                        <article>
-                            <h3>Leading Publishers & Blogs </h3>
-                            <p>
-                                From the small but quality blogs with the most dedicated followers, to the biggest publishers & news portals in the world that everyone reads.
-                                <br />
-                                Just choose where your article needs to be published, and it will happen.
-                            </p>
-                        </article>
-                        <section id="publisher-logos">
-                            <img src="img/logos/businessinsider.jpg" />
-                            <img src="img/logos/dailymail.jpg" />
-                            <img src="img/logos/diply.jpg" />
-                            <img src="img/logos/entrepreneur.jpg" />
-                            <img src="img/logos/forbes.jpg" />
-                            <img src="img/logos/houzz.jpg" />
-                            <img src="img/logos/huffingtonpost.jpg" />
-                            <img src="img/logos/lifehack.jpg" />
-                            <img src="img/logos/lifehacker.jpg" />
-                            <img src="img/logos/metro.png" />
-                            <img src="img/logos/stockhouse.jpg" />
-                            <img src="img/logos/tech.co.jpg" />
-                        </section>
-                    </section>
-                </div><!-- /PUBLISHERS -->
-            </section>
-
-            <section id="pricing">
-                <div class="small-container">
-                    <section id="pricing-content">
-                        <article>
-                            <h2>Simple pricing</h2>
-                            <h3>starting at</h3>
-                            <h1>$149</h1>
-                            <p>For a <b>unique</b> article</p>
-                        </article>
-                        <img src="img/pig-small.jpg" />
-                    </section>
-                </div>
-            </section><!-- /PRICING -->
-
             <section id="contact">
                 <form name="contactForm">
                     <section id="contact-form">
-                        <h1>Contact Us</h1>
-                        <label><input type="text" name="contactName" placeholder="Name"></label>
-                        <label><input type="text" name="contactEmail" placeholder="Email"></label>
-                        <label><textarea rows="10" name="message" placeholder="Message"></textarea></label>
+                        <h1>Join Us</h1>
+                        <div>
+                            <input type="text" name="contactName" placeholder="Your Name">
+                            <input type="text" name="contactEmail" placeholder="Email Address">
+                        </div>
+                        <input type="text" name="publications" placeholder="Publications you write for">
+                        <textarea rows="5" name="message" placeholder="Message"></textarea>
                     </section>
                     <button type="submit">Send</button>
                 </form>
-                <section id="info-card">
-                    <hgroup>
-                        <img src="img/logo.png" id="logo"/>
-                        <h1>LIVE<span>MATERIAL</span></h1>
-                    </hgroup>
-                    <section>
-                        <ul>
-                            <li><strong>E:</strong> <a href="mailto:hi@livematerial.io">hi@livematerial.io</a></li>
-                            <li><strong>P:</strong> +972-54800-6370</li>
-                            <li><strong>A:</strong> Dubnov 7, Tel-Aviv, Israel</li>
-                        </ul>
-                    </section>
-                </section><!-- /INFO CARD -->
             </section><!-- /CONTACT -->
 
             <footer>
                 <div class="container">
                     <section id="footer-content">
-                        <div id="footer-logo">
-                            <img src="img/mono-logo.png" />
-                            <h2>LIVEMATERIAL</h2>
-                        </div>
-                        <p>Copyright © 2016 LiveMaterial. All rights reserved</p>
+                        <img src="img/logo-white-small.png" />
+                        <p>Copyright © 2017 Simoti. All rights reserved</p>
                     </section>
                 </div>
             </footer>

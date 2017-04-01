@@ -1,3 +1,9 @@
+@media (max-width: 60em) {
+    #hero {
+        background-size: auto 62%, auto 62%;
+    }
+}
+
 @media (max-width: 48em) { /*Tablets, small screens*/
     #campaign-wizard section {
         flex-direction: column;
@@ -42,6 +48,10 @@
 }
 
 @media (max-width: 35em) { /*Mobile*/
+    #hero {
+        background-image: none, url(../img/hero-right.png);
+        background-size: auto, 100% auto;
+    }
     nav {
         opacity: 0;
     }
