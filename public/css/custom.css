@@ -108,7 +108,7 @@ nav a:hover {
 }
 
 /* PUBLICATIONS */
-#publications {
+/*#publications {
     background: #F7F7F6 url(../img/publications.png) center center no-repeat;
     background-size: contain;
     height: 105px;
@@ -123,6 +123,35 @@ nav a:hover {
     font-style: italic;
     font-weight: 100;
     text-transform: capitalize;
+}*/
+#publications {
+    background: #F7F7F5;
+    padding: 15px 0;
+}
+#publications h3 {
+    margin: 0;
+    font-size: 15px;
+    text-align: center;
+    color: #9e9d9d;
+    font-style: italic;
+    font-weight: 100;
+    text-transform: capitalize;
+}
+#publications ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0;
+}
+#publications ul li img {
+    height: 28px;
+}
+#publications ul li {
+    margin: 14px 25px 0 0;
+}
+#publications ul li:last-child {
+    margin-right: 0;
 }
 /* FEATURES */
 
@@ -242,7 +271,7 @@ nav a:hover {
     border: 1px solid #e7e7e7;
     border-left: none;
     border-right: none;
-    animation: system-zoom 15s 2s infinite alternate linear;
+    animation: system-zoom 15s 0s infinite alternate linear;
 }
 @keyframes system-zoom {
     0%   { background-position: 0 0; background-size: 100%; }

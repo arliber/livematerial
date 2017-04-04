@@ -28,12 +28,6 @@
     #submit-phase aside { /*It adds extra space on top on mobiles - so hide it*/
         display: none;
     }
-    #about-content {
-        flex-direction: column-reverse;
-    }
-    #about-content img {
-        width: 100%;
-    }
     #contact {
         flex-direction: column;
     }
@@ -45,6 +39,9 @@
         margin: 0 0 20px;
         transition: 0.5s;
     }
+    #about-content article {
+        width: auto;
+    }
 }
 
 @media (max-width: 35em) { /*Mobile*/
@@ -54,10 +51,6 @@
     }
     nav {
         opacity: 0;
-    }
-    #campaign-wizard #contact-details .form-elements {
-        display: flex;
-        flex-direction: column;
     }
     #features {
         flex-direction: column;
@@ -79,5 +72,13 @@
     #publisher-logos {
         flex: 1 1 100%;
     }
-    
+    #overview section section {
+        flex-direction: column;
+    }
+    #overview section section aside {
+        width: auto;
+    }
+    #overview .reverse-overview aside {
+        order: 2;
+    }
 }
