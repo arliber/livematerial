@@ -82,25 +82,27 @@ nav a:hover {
 /* HERO */
 
 #hero {
-    height: 350px;
+    height: 500px;
     /*background: url(../img/hero-3.png) no-repeat top center;*/
     /*background-size: cover;*/
     background-image: url(../img/hero-left.png), url(../img/hero-right.png);
     background-position: bottom left, bottom right;
     background-repeat: no-repeat, no-repeat;
-    background-size: auto 100%, auto 100%;
+    background-size: auto 70%, auto 70%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 #hero section {
-    background: rgba(255,255,255,0.9);
+    /*background: rgba(255,255,255,0.9);*/
     width: 400px;
     transition: 0.5s; /*Animate this because it changes in mobile.css*/
     text-align: center;
     padding: 20px;
     font-weight: 300;
+    align-self: baseline;
+    margin-top: 50px;
 }
 #hero section p {
     font-size: 30px;
