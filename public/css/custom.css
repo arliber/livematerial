@@ -1,6 +1,7 @@
 body {
     /*font-family: 'Roboto', sans-serif;*/
     font-family: 'Quattrocento Sans', sans-serif;
+    color: #3e3e3e;
 }
 
 .container {
@@ -259,10 +260,6 @@ nav a:hover {
     margin: 0;
 }*/
 
-
-
-
-
 /* ABOUT */
 #about {
     border: 1px solid #e7e7e7;
@@ -271,29 +268,21 @@ nav a:hover {
     background: #e7e7e7;
 }
 #about-content {
-    /*position: relative;*/
-    margin: 20px 7px 20px 0;
+    margin: 50px 7px 50px 0;
 }
 #article-container {
     background: #fff url(../img/system-preview-6.jpg) no-repeat 0px center;
     background-size: contain;
     display: flex;
     font-weight: 100;
-    color: #222;
     padding: 35px 25px;
-    border-radius: 10px;
+    border-radius: 5px;
     flex-direction: row-reverse;
 }
 #about article {
     width: 50%;
     z-index: 100;
 }
-/*#about-content img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-}*/
 #about-content article h2 {
     margin: 0;
     font-weight: 700;
